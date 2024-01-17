@@ -4,7 +4,7 @@
   :version "0.1"
   :author "Marcus Pemer"
   :license "GPLv3"
-  :depends-on ("local-time" "parse-number" "str" "alexandria")
+  :depends-on ("parachute" "local-time" "parse-number" "str" "alexandria")
   :components ((:file "package")
                (:file "util" :depends-on ("package")))
   :description "Local utility functions."
