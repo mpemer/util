@@ -1,3 +1,5 @@
+(in-package :cl-user)
+
 (defpackage :util
   (:use :common-lisp :rutil :parse-number)
   (:import-from :alexandria :compose)
