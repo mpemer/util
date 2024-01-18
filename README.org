@@ -1,0 +1,51 @@
+#+TITLE: Util Library
+#+AUTHOR: Marcus Pemer
+#+EMAIL: marcus@pemer.com
+
+* Util Library
+  :PROPERTIES:
+  :CUSTOM_ID: util-library
+  :END:
+
+  The Util Library is a collection of utility functions designed to enhance the Common Lisp programming experience. It includes a variety of tools for common tasks, such as file handling, list processing, and more.
+
+** Features
+   - File reading and writing in byte format.
+   - Handling and manipulation of property lists.
+   - General-purpose list and string utilities.
+
+** Installation
+   To use the Util Library, clone this repository into your local Quicklisp local-projects directory:
+
+   #+BEGIN_SRC shell
+     git clone https://github.com/mpemer/util.git ~/quicklisp/local-projects/util
+   #+END_SRC
+
+** Usage
+   Once installed, you can load the library using Quicklisp:
+
+   #+BEGIN_SRC lisp
+     (ql:quickload :util)
+   #+END_SRC
+
+** Functions Documentation
+   - ~read-file-as-bytes~: Read the contents of a file and return it as a list of bytes.
+   - ~create-mock-file~: Create a temporary file with given content.
+   - ~drop~: Drop a specified number of elements from a sequence.
+   - ~ensure-list~: Ensure an object is a list.
+   - ~struct-field-names~: Extract field names from a struct.
+   - ~struct-to-list~: Convert a struct to a list of its values.
+   - ~proper-plist-p~: Check if a property list is properly formed.
+
+** Contributing
+   Contributions are welcome! If you would like to contribute, please fork the repository and submit a pull request.
+
+** License
+   This project is licensed under the GPL v3 License - see the LICENSE file for details.
+
+* Contact
+  :PROPERTIES:
+  :CUSTOM_ID: contact
+  :END:
+
+  For any inquiries, feel free to reach out to Marcus Pemer at [[mailto:marcus@pemer.com][marcus@pemer.com]].
