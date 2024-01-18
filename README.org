@@ -1,4 +1,3 @@
-#+TITLE: Util Library
 #+AUTHOR: Marcus Pemer
 #+EMAIL: marcus@pemer.com
 
