@@ -25,6 +25,7 @@
 ;;;; -----------------------------------------------------------------------
 
 (defpackage :util/core/main
+  (:nicknames :util)
   (:use :common-lisp :rtl)
   (:import-from :alexandria :compose)
   (:import-from :parse-number :parse-number)
@@ -32,9 +33,9 @@
            :struct-field-names :struct-to-list
            :ensure-list :splice
            :proper-plist-p :drop :read-file-as-bytes
-           :create-mock-file))
+           :create-mock-file :import-original-symbols))
 
-(in-package :util/core/main)
+(in-package :util)
 
 ;; For docstirngs, we can now prefix them with #.#~,
 ;; and they will be formatted.
@@ -624,3 +625,21 @@
 ;;         "Reading a non-existent file should return NIL."))
 
 ;;   )
+
+
+(defun import-original-symbols (package-name)
+  "Import symbols that are originally defined in PACKAGE-NAME into the current package."
+  (let ((source-package (find-package package-name)))
+    (format t "Starting import from package: ~A~%" source-package)
+    (do-symbols (symbol source-package)
+      (when (eq (symbol-package symbol) source-package)
+        (let ((symbol-name (symbol-name symbol)))
+          ;; Import the symbol if it's not already present
+          (unless (find-symbol symbol-name *package*)
+            (import symbol *package*)
+            (format t "Imported symbol: ~A~%" symbol))
+          ;; If the symbol has a function binding, import the function
+          (when (fboundp symbol)
+            (let ((new-symbol (find-symbol symbol-name *package*)))
+              (setf (fdefinition new-symbol) (fdefinition symbol))
+              (format t "Imported function: ~A~%" symbol))))))))

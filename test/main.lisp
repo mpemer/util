@@ -26,7 +26,6 @@
 
 (defpackage :util/test/main
   (:use :common-lisp :util/core/main)
-  ;;(:import-from :util/core/main)
   (:import-from :parachute :define-test :is :fail))
 
 (in-package :util/test/main)

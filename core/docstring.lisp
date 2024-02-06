@@ -25,10 +25,11 @@
 ;;;; -----------------------------------------------------------------------
 
 (defpackage :util/core/docstring
+  (:nicknames :docstring)
   (:use :common-lisp)
   (:import-from :split-sequence :split-sequence))
 
-(in-package :util/core/docstring)
+(in-package :docstring)
 
 ;;;; -----------------------------------------------------------------------
 (defun add-newline-formatting (input-string)
